@@ -17,14 +17,24 @@ class GeradorRa {
       required this.numeroAleatorio});
 
   // obtendo o ano atual
-  int obterAnoAtual() {
+  String obterAnoAtual() {
     var dataAtual = new DateTime.now();
-    var anoAtual = dataAtual.year;
+    var anoAtual = dataAtual.year.toString();
     return anoAtual;
   }
-  int gerarCodigoAleatorio() {
+
+  String gerarCodigoAleatorio() {
     Random random = new Random();
-    int numeroAleatorio = random.nextInt(99999) + 9999;
+    String numeroAleatorio = (random.nextInt(99999) + 9999).toString();
     return numeroAleatorio;
+  }
+
+  int gerarRa() {
+    String codigoDisciplina = '000';
+    var anoAtual = obterAnoAtual();
+    var codigoAleatorio = gerarCodigoAleatorio();
+    var montandoRa = anoAtual + codigoDisciplina + codigoAleatorio;
+    var ra = int.parse(montandoRa);
+    return ra;
   }
 }
