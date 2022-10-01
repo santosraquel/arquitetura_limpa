@@ -1,10 +1,11 @@
 import 'package:arquitetura_limpa/domain/dados/dados_aluno.dart';
+import 'package:arquitetura_limpa/domain/dados/gerador_ra.dart';
 import 'package:arquitetura_limpa/domain/erro/email_invalido.dart';
 import 'package:arquitetura_limpa/domain/erro/ra_invalido.dart';
 
 class Aluno {
   late String nome;
-  late String ra;
+  late GeradorRa ra;
   late String email;
 
   Aluno({required this.nome, required this.ra, required this.email});
@@ -20,7 +21,7 @@ class Aluno {
     // R.A não pode ter mais que 11 digitos
     if (ra.isEmpty || ra.length < 11) throw RaInvalido();
     this.nome = nome;
-    this.ra = ra;
+    // this.ra = ra;
     this.email = email;
   }
 }
