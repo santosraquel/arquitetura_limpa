@@ -8,6 +8,9 @@ class Disciplina {
   double nota3;
   int quantidadePresenca;
   int cargaHorariaDisciplina;
+  double media;
+  String statusAlunoPorMedia;
+  String statusAlunoPorPresenca;
 
   Disciplina(
       {required this.aluno,
@@ -16,7 +19,10 @@ class Disciplina {
       required this.nota2,
       required this.nota3,
       required this.quantidadePresenca,
-      required this.cargaHorariaDisciplina});
+      required this.cargaHorariaDisciplina,
+      required this.media,
+      required this.statusAlunoPorMedia,
+      required this.statusAlunoPorPresenca});
 
   double calcularMedia(nota1, nota2, nota3) {
     validarNota(nota1);

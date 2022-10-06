@@ -10,14 +10,15 @@ class RegistrarNota {
   NotaRepositorio repositorioNota;
   DadosAluno dadosAluno;
   late Aluno aluno;
-  late Disciplina nota1;
-  late Disciplina nota2;
-  late Disciplina nota3;
+  late Disciplina nota;
 
   RegistrarNota(this.repositorioAluno, this.repositorioNota, this.dadosAluno) {
+    // verificando se o aluno já existe
     if (!repositorioAluno.existe(dadosAluno)) throw AlunoInexistente();
-    Aluno aluno = Aluno.criar(dadosAluno);
-    repositorioNota.identificarAluno(dadosAluno);
+    Aluno aluno = Aluno.criar(dadosAluno); // criando aluno
+    repositorioNota.identificarAluno(dadosAluno); // identificando o aluno
+    // salvando a nota do aluno
+    if (repositorioNota.salvar(aluno, nota)) notificarAluno();
   }
 
   notificarAluno() {
