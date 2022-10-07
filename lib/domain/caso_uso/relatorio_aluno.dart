@@ -41,12 +41,3 @@ class RelatorioAluno {
     print(aluno.email);
   }
 }
-
-
-// mostrar:
-    // - o R.A do aluno
-    // - o nome do aluno
-    // a média
-    // status por média (APROVADO / REPROVADO)
-    // percentual de presença
-    // status por presença (APROVADO / REPROVADO)
