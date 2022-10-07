@@ -21,20 +21,22 @@ class RelatorioAluno {
     Aluno aluno = Aluno.criar(dadosAluno); // criando aluno
 
     Disciplina disciplina = new Disciplina();
-    disciplina.calcularMedia(
+    var media = disciplina.calcularMedia(
         disciplina.nota1, disciplina.nota2, disciplina.nota3);
 
-    disciplina.verificarAprovacaoMedia(
+    var aprovacaoPorMedia = disciplina.verificarAprovacaoMedia(
         disciplina.nota1, disciplina.nota2, disciplina.nota3);
 
-    disciplina.verificarAprovacaoPresenca(
+    var aprovacaoPorPresenca = disciplina.verificarAprovacaoPresenca(
         quantidadePresenca: disciplina.quantidadePresenca,
         cargaHorariaDisciplina: disciplina.cargaHorariaDisciplina);
 
     repositorioRelatorioAluno
         .identificarAluno(dadosAluno); // identificando o aluno
 
-    if (repositorioRelatorioAluno.salvar(aluno, disciplina)) notificarAluno();
+    if (repositorioRelatorioAluno.salvar(
+        aluno, media, aprovacaoPorMedia, aprovacaoPorPresenca))
+      notificarAluno();
   }
 
   notificarAluno() {
