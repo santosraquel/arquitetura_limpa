@@ -4,5 +4,5 @@ import 'package:arquitetura_limpa/domain/entidade/disciplina.dart';
 
 abstract class NotaRepositorio {
   identificarAluno(DadosAluno dadosAluno);
-  bool salvar(Aluno aluno, Disciplina nota);
+  bool salvar(Aluno aluno, Disciplina disciplina);
 }
